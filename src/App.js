@@ -17,6 +17,7 @@ import AllProducts from './components/AllProducts/AllProducts';
 import MyOrder from './components/MyOrders/MyOrder';
 import AdminController from './components/AdminController/AdminController';
 import ProductsManager from './components/ProductsManager/ProductsManager';
+import NotFound from './components/NotFound/NotFound';
 
 export const UserContext = createContext();
 function App() {
@@ -36,34 +37,37 @@ function App() {
             <Login></Login>
           </Route>
           <PrivateRoute path='/admin'>
-          <AdminController></AdminController>
+            <AdminController></AdminController>
           </PrivateRoute>
           <PrivateRoute path='/addYourProducts'>
             <AdminController></AdminController>
-          <AddProcuts></AddProcuts>
+            <AddProcuts></AddProcuts>
           </PrivateRoute>
           <PrivateRoute path='/allOrders'>
-          <AdminController></AdminController>
-           <ProductsManager></ProductsManager>
+            <AdminController></AdminController>
+            <ProductsManager></ProductsManager>
           </PrivateRoute>
           <PrivateRoute path='/allOrders'>
-          <ProductsManager></ProductsManager>
+            <ProductsManager></ProductsManager>
           </PrivateRoute>
           <PrivateRoute path='/confirmation/:id'>
-           <Confirmation></Confirmation>
+            <Confirmation></Confirmation>
           </PrivateRoute>
           <PrivateRoute path="/allProducts">
             <AllProducts />
           </PrivateRoute>
           <PrivateRoute path='/checkout'>
-           <Checkout></Checkout>
+            <Checkout></Checkout>
           </PrivateRoute>
           <PrivateRoute path='/order'>
-        <MyOrder></MyOrder>
+            <MyOrder></MyOrder>
           </PrivateRoute>
+          <Route path='*'>
+            <NotFound />
+          </Route>
         </Switch>
       </Router>
-      </UserContext.Provider>
+    </UserContext.Provider>
   );
 }
 
