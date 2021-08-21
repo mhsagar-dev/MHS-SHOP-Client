@@ -58,7 +58,7 @@ const Confirmation = () => {
                 <br />
                 <input className="form-control rounded-pill" value={order.price} {...register("pdPrice")} />
                 <br />
-                <input className="form-control rounded-pill btn btn-primary" defaultValue='Confirm' required type="submit" />
+                <input className="form-control rounded-pill btn btn-primary" value='Confirm' required type="submit" />
             </form>
         </div>
     );

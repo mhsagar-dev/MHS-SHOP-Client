@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { UserContext } from '../../App';
+import { Spinner } from 'react-bootstrap';
 
 const MyOrder = () => {
 
@@ -14,11 +15,11 @@ const MyOrder = () => {
             .then(data => setMyorder(data))
     }, [])
     return (
-        <div className='contaiiner'>
+        <div className='container'>
             <h4 className='text-center mt-3'>
                 Hey <span className='text-danger'> {loggedInUser.name}</span>, This is your Order List
             </h4>
-            <table className='table table-bordered container mt-3'>
+            <table className='table table-bordered mt-3'>
                 <thead>
                     <tr className='text-center table-light table-responsive'>
                         <th scope='col'>Product Name</th>
@@ -26,6 +27,10 @@ const MyOrder = () => {
                     </tr>
                 </thead>
                 <tbody>
+
+                {
+                    myorder.length === 0 && <Spinner className='container mt-5 text-center' animation="border" />
+                }
                     {myorder.map((order) => (
                         <tr>
                             <td>{order.productName}</td>

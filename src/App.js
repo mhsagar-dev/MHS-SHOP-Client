@@ -11,9 +11,7 @@ import Login from './components/Login/Login';
 import { createContext } from 'react';
 import { useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import Checkout from './components/Checkout/Checkout';
 import Confirmation from './components/Confirmation/Confirmation';
-import AllProducts from './components/AllProducts/AllProducts';
 import MyOrder from './components/MyOrders/MyOrder';
 import AdminController from './components/AdminController/AdminController';
 import ProductsManager from './components/ProductsManager/ProductsManager';
@@ -38,26 +36,21 @@ function App() {
           </Route>
           <PrivateRoute path='/admin'>
             <AdminController></AdminController>
+            <AddProcuts></AddProcuts>
           </PrivateRoute>
           <PrivateRoute path='/addYourProducts'>
             <AdminController></AdminController>
             <AddProcuts></AddProcuts>
           </PrivateRoute>
-          <PrivateRoute path='/allOrders'>
+          <PrivateRoute path='/allProducts'>
             <AdminController></AdminController>
             <ProductsManager></ProductsManager>
           </PrivateRoute>
-          <PrivateRoute path='/allOrders'>
+          <PrivateRoute path='/allProducts'>
             <ProductsManager></ProductsManager>
           </PrivateRoute>
           <PrivateRoute path='/confirmation/:id'>
             <Confirmation></Confirmation>
-          </PrivateRoute>
-          <PrivateRoute path="/allProducts">
-            <AllProducts />
-          </PrivateRoute>
-          <PrivateRoute path='/checkout'>
-            <Checkout></Checkout>
           </PrivateRoute>
           <PrivateRoute path='/order'>
             <MyOrder></MyOrder>

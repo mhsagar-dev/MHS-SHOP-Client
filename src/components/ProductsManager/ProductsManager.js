@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { UserContext } from '../../App';
+import { Spinner } from 'react-bootstrap';
 
 const ProductsManager = () => {
 
@@ -28,6 +29,10 @@ const ProductsManager = () => {
                     </tr>
                 </thead>
                 <tbody>
+
+                {
+                    orders.length === 0 && <Spinner className='container mt-5 text-center' animation="border" />
+                }
                     {orders.map((allPDTS) => (
                         <tr>
                             <td>{allPDTS.name}</td>
