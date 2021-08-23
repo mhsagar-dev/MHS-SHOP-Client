@@ -11,7 +11,7 @@ const ProductsManager = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [orders, setOrders] = useState([]);
-    
+
     useEffect(() => {
         fetch(`https://guarded-brushlands-08692.herokuapp.com/products`)
             .then(res => res.json())
@@ -28,11 +28,12 @@ const ProductsManager = () => {
                         <th scope='col'>Manage</th>
                     </tr>
                 </thead>
-                <tbody>
 
                 {
-                    orders.length === 0 && <Spinner className='container mt-5 text-center' animation="border" />
+                    orders.length === 0 && <Spinner className='d-flex justify-content-center' animation="border" />
                 }
+
+                <tbody>
                     {orders.map((allPDTS) => (
                         <tr>
                             <td>{allPDTS.name}</td>
